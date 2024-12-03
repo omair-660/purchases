@@ -11,3 +11,59 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.css-1l1b5u7-MuiInputBase-root-MuiFilledInput-root::after {
+  border-bottom: 2px solid #673ab7c4!important;
+}
+.css-snxp82-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
+  color: #e0ceffc4!important;
+}
+.btn-success{
+  background-color: #4caf50; 
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 2px;
+  transition: 0.5s;
+}
+.btn-success:hover{
+  background-color: #348e37; 
+}
+.btn-danger{
+  background-color: #f44336; 
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  margin-right: 2px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.btn-danger:hover{
+  background-color: #e02c1f; 
+}
+
+.loader {
+  display: inline-flex;
+  gap: 10px;
+}
+.loader:before,
+.loader:after {
+  content: "";
+  height: 20px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(farthest-side,#000 95%,#0000) 35% 35%/6px 6px no-repeat
+    #fff;
+  transform: scaleX(var(--s,1)) rotate(0deg);
+  animation: l6 1s infinite linear;
+}
+.loader:after {
+  --s: -1;
+  animation-delay:-0.1s;
+}
+@keyframes l6 {
+  100% {transform:scaleX(var(--s,1)) rotate(360deg);}
+}
