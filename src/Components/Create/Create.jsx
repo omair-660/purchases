@@ -1,5 +1,5 @@
 import { Box, Button, InputAdornment, TextField } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "@emotion/styled";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import axios from "axios";
@@ -9,7 +9,9 @@ import { useFormik } from "formik";
 import * as Yup from 'yup'
 
 export default function Create() {
-
+  useEffect(() => {
+    document.title = "Create"; 
+  }, []);
   const ColorButton = styled(Button)(({ theme }) => ({
     color: theme.palette.getContrastText(purple[500]),
     backgroundColor: purple[500],

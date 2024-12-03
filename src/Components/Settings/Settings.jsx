@@ -1,8 +1,10 @@
 import { Box, Typography, Button , TextField, FormControl, InputLabel, Select, OutlinedInput, MenuItem, useTheme } from '@mui/material';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 export default function Settings() {
-
+  useEffect(() => {
+    document.title = "Settings"; 
+  }, []);
   const ITEM_HEIGHT = 48;
   const ITEM_PADDING_TOP = 8;
   const MenuProps = {

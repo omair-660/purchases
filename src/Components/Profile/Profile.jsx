@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Box, Typography, Button, Avatar } from "@mui/material";
 
 export default function Profile() {
+  useEffect(() => {
+    document.title = "Profile"; 
+  }, []);
   const user = {
     name: "mohammed",
     email: "mohamed@example.com",

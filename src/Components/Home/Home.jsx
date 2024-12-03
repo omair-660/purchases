@@ -8,7 +8,9 @@ import Loading from "../Loading/Loading";
 export default function Home() {
   const [shawData, setshawData] = useState([]);
   const [isLoading, setisLoading] = useState(false)
-
+  useEffect(() => {
+    document.title = "Home"; 
+  }, []);
   function getData() {
     setisLoading(true)
     axios
