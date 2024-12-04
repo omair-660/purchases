@@ -1,7 +1,8 @@
+import { Box } from '@mui/material'
 import React from 'react'
 
 export default function Loading() {
   return (
-    <div class="loader"></div> 
+    <Box component={'section'} className="loader"></Box> 
   )
 }

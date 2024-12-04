@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import Drawer from "@mui/material/Drawer";
 import Divider from "@mui/material/Divider";
-import { IconButton, ListItemButton, ListItemText } from "@mui/material";
+import { Badge, IconButton, ListItemButton, ListItemText } from "@mui/material";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
@@ -15,8 +15,10 @@ import { useLocation, useNavigate } from "react-router-dom";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import { yellow } from "@mui/material/colors";
 import { grey } from "@mui/material/colors";
+import { DataContext } from "../../DataContext/DataContext";
 
 export default function Draweer({ drawerWidth, setmyMode, myMode,setshawDrawer, shawDrawer ,togglepermanent,settogglePermanent}) {
+  let {count } = useContext(DataContext)
   let navegate = useNavigate();
   function toggleMode() {
     myMode === "light" ? setmyMode("dark") : setmyMode("light");
@@ -34,6 +36,7 @@ export default function Draweer({ drawerWidth, setmyMode, myMode,setshawDrawer, 
    
     window.location.replace('about:blank'); 
   };
+
 
   return (
     <>
@@ -77,31 +80,37 @@ export default function Draweer({ drawerWidth, setmyMode, myMode,setshawDrawer, 
         <Divider />
 
         <List>
-          {myList.map((list,index)=>
-
-          <ListItem
-          key={index}
-            sx={{
-              bgcolor:
-              loaction.pathname === list.path && myMode === "light"
-              ? grey[200] 
-              : loaction.pathname === list.path && myMode === "dark"
-              ? grey[800] 
-              : null, 
-            }}
-            disablePadding
-          >
-            <ListItemButton
-              onClick={() => navegate(list.path)}
-              sx={{ transition: "0.5s" }}
-            >
-              <ListItemIcon>
-                {list.icon}
-              </ListItemIcon>
-              <ListItemText sx={{textTransform: "capitalize"}} primary={list.text} />
-            </ListItemButton>
-          </ListItem>
+        {myList.map((list, index) => (
+  <ListItem
+    key={index}
+    sx={{
+      bgcolor:
+        loaction.pathname === list.path && myMode === "light"
+          ? grey[200]
+          : loaction.pathname === list.path && myMode === "dark"
+          ? grey[800]
+          : null,
+    }}
+    disablePadding
+  >
+    <ListItemButton
+      onClick={() => navegate(list.path)}
+      sx={{ transition: "0.5s" }}
+    >
+      <ListItemIcon>
+        {index === 0 ? ( 
+          <Badge badgeContent={count} color="secondary"> 
+            {list.icon}
+          </Badge>
+        ) : (
+          list.icon
         )}
+      </ListItemIcon>
+      <ListItemText sx={{ textTransform: "capitalize" }} primary={list.text} />
+    </ListItemButton>
+  </ListItem>
+))}
+
 
          
 

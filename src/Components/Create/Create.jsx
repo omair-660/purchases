@@ -1,5 +1,5 @@
 import { Box, Button, InputAdornment, TextField } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "@emotion/styled";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import axios from "axios";
@@ -7,8 +7,11 @@ import toast, { Toaster } from "react-hot-toast";
 import { purple } from "@mui/material/colors";
 import { useFormik } from "formik";
 import * as Yup from 'yup'
+import { DataContext } from "../../DataContext/DataContext";
 
 export default function Create() {
+ let {setcount} = useContext(DataContext)
+  
   useEffect(() => {
     document.title = "Create"; 
   }, []);
@@ -26,16 +29,19 @@ export default function Create() {
     title: Yup.string("title must be string").required("this input required").min(3, "min length must be 3"),
     price: Yup.number("price must be number").required("this input required").min(0, "min length must be 1")
   });
-
+  // const url = `http://localhost:3000/myData`
+//https://674f8478bb559617b26f6380.mockapi.io/api/v1/data
   function sendData(value) {
     setLoading(true);
-    axios.post(`http://localhost:3000/myData`, value)
+    axios.post(`https://674f8478bb559617b26f6380.mockapi.io/api/v1/data`, value)
       .then((res) => {
         setLoading(false);
+        formik.resetForm();
+        setcount(res.data.length)
         if (res.status === 201) {
           toast.success('created');
         }
-        // console.log(res);
+        console.log(res);
       })
       .catch((err) => {
         console.log(err);

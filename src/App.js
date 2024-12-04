@@ -5,6 +5,7 @@ import Home from './Components/Home/Home';
 import Create from './Components/Create/Create';
 import Profile from './Components/Profile/Profile';
 import Settings from './Components/Settings/Settings';
+import DataContextProvider from './DataContext/DataContext';
 
 function App() {
   
@@ -17,8 +18,10 @@ function App() {
     ]}
   ])
   return (
+<DataContextProvider>
+<RouterProvider router={x}></RouterProvider>
 
-      <RouterProvider router={x}></RouterProvider>
+</DataContextProvider>
   );
 }
 
