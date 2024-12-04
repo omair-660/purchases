@@ -93,3 +93,6 @@ section , form{
     opacity: 1;
   }
 }
+h1,h2,h3,h4,h5,h6,p,span{
+  transition: 0.5s ease-in-out;
+}
