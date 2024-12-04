@@ -96,6 +96,10 @@ export default function Home() {
               px: '20px',
               borderRadius: '10px',
               position: 'relative',
+               transition:"0.5s",
+                '&:hover':{
+                  scale:"1.04"
+                }
             }}
           >
             <Typography variant="h6" sx={{ fontSize: '1.3rem' }}>
