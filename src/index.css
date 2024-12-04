@@ -67,3 +67,29 @@ code {
 @keyframes l6 {
   100% {transform:scaleX(var(--s,1)) rotate(360deg);}
 }
+section , form{
+  animation: trans 1s ease-in-out;
+}
+@keyframes trans {
+  0%{
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100%{
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+ form{
+  animation: trans2 1s ease-in-out;
+}
+@keyframes trans2 {
+  0%{
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100%{
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

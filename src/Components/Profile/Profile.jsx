@@ -11,7 +11,7 @@ export default function Profile() {
   };
 
   return (
-    <Box sx={{ textAlign: "center", padding: 2 }}>
+    <Box component={'section'} sx={{ textAlign: "center", padding: 2 }}>
       <Avatar
         alt="Remy Sharp"
         src="https://mui.com/static/images/avatar/1.jpg"

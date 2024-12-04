@@ -47,7 +47,7 @@ export default function Settings() {
     };
   
   return (
-    <Box sx={{ textAlign: 'center', padding: 2 }}>
+    <Box component={'section'} sx={{ textAlign: 'center', padding: 2 }}>
       <Typography variant="h5" sx={{ marginBottom: 2 }}>Settings</Typography>
       <Box sx={{ marginBottom: 3 }}>
       <FormControl sx={{ m: 1, width: 300 }}>

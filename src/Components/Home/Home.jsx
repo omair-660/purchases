@@ -79,7 +79,7 @@ export default function Home() {
     <>
     { shawData.length === 0 &&
     <Typography fontSize={20} color="info">No purchases yet.</Typography>}
-      <Box>
+      <Box component={'section'}>
       {  isLoading ? (
         <Loading /> 
       ) : (
